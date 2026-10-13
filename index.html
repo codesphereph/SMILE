@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SMILE - See More of Iloilo's Landmarks and Experiences</title>
+  <meta name="description" content="SMILE: See More of Iloilo's Landmarks and Experiences. Explore landmarks, restaurants and cafés, shops and experiences in Iloilo, and earn badges and points as you go.">
+  <meta name="theme-color" content="#FFB000">
+  <meta name="application-name" content="SMILE">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="SMILE">
+
+  <!-- Social -->
+  <meta property="og:title" content="SMILE - See More of Iloilo's Landmarks and Experiences">
+  <meta property="og:description" content="Explore Iloilo and collect badges and points as you go.">
+  <meta property="og:image" content="assets/hero.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/hero.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ============ SPLASH / OPENING ANIMATION ============ -->
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="splash-burst"></div>
+    <div class="splash-logo">
+      <svg class="splash-ring" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="56" pathLength="100" class="r r1"/>
+        <circle cx="60" cy="60" r="56" pathLength="100" class="r r2"/>
+        <circle cx="60" cy="60" r="56" pathLength="100" class="r r3"/>
+        <circle cx="60" cy="60" r="56" pathLength="100" class="r r4"/>
+        <circle cx="60" cy="60" r="56" pathLength="100" class="r r5"/>
+      </svg>
+      <img src="assets/logo-circle.png" alt="" width="220" height="220">
+    </div>
+    <p class="splash-tag">
+      <span>See</span> <span>More</span> <span>of</span> <span>Iloilo's</span><br>
+      <span>Landmarks</span> <span>and</span> <span>Experiences</span>
+    </p>
+  </div>
+
+  <!-- ============ APP HEADER ============ -->
+  <header class="topbar" id="topbar">
+    <a href="#home" class="brand" aria-label="SMILE home">
+      <img src="assets/logo-circle.png" alt="SMILE logo" class="brand-logo" width="44" height="44">
+      <span class="brand-text">
+        <strong>SMILE</strong>
+        <small>See More of Iloilo's Landmarks and Experiences</small>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="Main">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#explore/landmarks" data-nav="explore">Explore</a>
+      <a href="#badges" data-nav="badges">Badges &amp; Points</a>
+    </nav>
+    <button class="points-pill" id="pointsPill" type="button" aria-label="Your points">
+      <span class="star">★</span> <span id="pointsValue">0</span> pts
+    </button>
+  </header>
+
+  <main id="app">
+    <!-- ============ LANDING ============ -->
+    <section id="view-home" class="view" data-view="home">
+      <div class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-frame">
+          <div class="hero-poster">
+            <img src="assets/hero.jpg"
+                 srcset="assets/hero-sm.jpg 768w, assets/hero.jpg 1536w"
+                 sizes="(max-width: 800px) 100vw, 1200px"
+                 alt="SMILE, See More of Iloilo's Landmarks and Experiences: a traveler looking at a heritage church, a lighthouse by the water, and Ilonggo food, coffee and crafts"
+                 width="1536" height="1024" fetchpriority="high">
+            <!-- Tappable hotspots over the poster's category circles -->
+            <a class="hotspot" style="--x:63.95%" href="#explore/landmarks"   aria-label="Landmarks"></a>
+            <a class="hotspot" style="--x:72.35%" href="#explore/restaurants" aria-label="Restaurants and Cafés"></a>
+            <a class="hotspot" style="--x:80.70%" href="#explore/shops"       aria-label="Shops"></a>
+            <a class="hotspot" style="--x:88.25%" href="#explore/experiences" aria-label="Experiences"></a>
+            <a class="hotspot" style="--x:95.70%" href="#badges"              aria-label="Badges and Points"></a>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <img src="assets/logo-circle.png" alt="SMILE logo" class="hero-logo" width="96" height="96">
+          <div class="hero-copy">
+            <span class="eyebrow">Iloilo City · Province of Iloilo</span>
+            <h1>SMILE <span class="dash">-</span> <span class="sub">See More of Iloilo's Landmarks and Experiences</span></h1>
+          </div>
+          <div class="hero-cta">
+            <a href="#explore/landmarks" class="btn btn-primary">Start exploring</a>
+            <a href="#badges" class="btn btn-ghost">My badges</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="section-head">
+          <span class="pill">Explore</span>
+          <h2>Where to next?</h2>
+        </div>
+        <div class="cat-grid" id="catGrid"></div>
+
+        <div class="how card">
+          <div class="how-step"><b>1</b><span><strong>Pick a place</strong>Landmarks, food, shops, experiences.</span></div>
+          <div class="how-step"><b>2</b><span><strong>Visit &amp; check in</strong>Tap "Check in" when you get there.</span></div>
+          <div class="how-step"><b>3</b><span><strong>Collect badges</strong>Earn points and unlock badges.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPLORE ============ -->
+    <section id="view-explore" class="view" data-view="explore" hidden>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="pill">Explore</span>
+          <h2 id="exploreTitle">Landmarks</h2>
+        </div>
+        <div class="tabs" role="tablist" id="catTabs"></div>
+        <label class="search">
+          <span aria-hidden="true">🔍</span>
+          <input type="search" id="searchInput" placeholder="Search places, areas, tags…" autocomplete="off">
+        </label>
+        <div class="place-grid" id="placeGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ BADGES & POINTS ============ -->
+    <section id="view-badges" class="view" data-view="badges" hidden>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="pill">Badges &amp; Points</span>
+          <h2>Your Iloilo passport</h2>
+        </div>
+        <div class="profile card" id="profileCard"></div>
+        <h3 class="h3">Badges</h3>
+        <div class="badge-grid" id="badgeGrid"></div>
+        <h3 class="h3">Top explorers</h3>
+        <ol class="leaderboard card" id="leaderboard"><li class="muted">Loading…</li></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/logo-circle.png" alt="" width="28" height="28">
+    <span>SMILE · See More of Iloilo's Landmarks and Experiences</span>
+    <button type="button" class="link" id="installLink" hidden>Install app</button>
+  </footer>
+
+  <!-- Mobile bottom nav -->
+  <nav class="bottomnav" aria-label="Main mobile">
+    <a href="#home" data-nav="home"><span>🏠</span>Home</a>
+    <a href="#explore/landmarks" data-nav="explore"><span>📍</span>Explore</a>
+    <a href="#badges" data-nav="badges"><span>⭐</span>Badges</a>
+  </nav>
+
+  <!-- ============ INSTALL BANNER ============ -->
+  <div class="install-banner" id="installBanner" role="dialog" aria-labelledby="installTitle" hidden>
+    <img src="icons/icon-96.png" alt="" width="56" height="56">
+    <div class="install-text">
+      <strong id="installTitle">Install SMILE</strong>
+      <span id="installMsg">Add SMILE to your home screen for faster, offline-ready exploring.</span>
+    </div>
+    <div class="install-actions">
+      <button type="button" class="btn btn-primary btn-sm" id="installBtn">Install</button>
+      <button type="button" class="btn-x" id="installClose" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
+
+  <!-- ============ PLACE SHEET ============ -->
+  <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
+  <div class="sheet" id="placeSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+    <button class="btn-x sheet-close" type="button" id="sheetClose" aria-label="Close">✕</button>
+    <div id="sheetBody"></div>
+  </div>
+
+  <!-- ============ NAME DIALOG ============ -->
+  <dialog id="nameDialog" class="dialog">
+    <form method="dialog" id="nameForm">
+      <img src="assets/logo-circle.png" alt="" width="72" height="72">
+      <h3>What should we call you?</h3>
+      <p class="muted">Your nickname appears on the Top Explorers board.</p>
+      <input id="nameInput" maxlength="40" required placeholder="e.g. Ilonggo Explorer">
+      <div class="row">
+        <button value="cancel" class="btn btn-ghost" type="button" id="nameCancel">Cancel</button>
+        <button value="ok" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  <script src="config.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

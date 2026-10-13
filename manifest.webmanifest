@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "SMILE - See More of Iloilo's Landmarks and Experiences",
+  "short_name": "SMILE",
+  "description": "Explore Iloilo's landmarks, restaurants and cafés, shops and experiences, and earn badges and points as you go.",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#FFF7EA",
+  "theme_color": "#FFB000",
+  "lang": "en-PH",
+  "categories": ["travel", "lifestyle", "food"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "assets/hero.jpg", "sizes": "1536x1024", "type": "image/jpeg", "form_factor": "wide", "label": "SMILE landing page" }
+  ],
+  "shortcuts": [
+    { "name": "Landmarks", "url": "./#explore/landmarks", "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }] },
+    { "name": "Restaurants & Cafés", "url": "./#explore/restaurants", "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }] },
+    { "name": "Badges & Points", "url": "./#badges", "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }] }
+  ]
+}
