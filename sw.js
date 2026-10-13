@@ -1,10 +1,10 @@
 /* SMILE service worker – offline app shell.
    Bump VERSION whenever you change files so users get the update. */
-const VERSION = 'smile-v1.0.1';
+const VERSION = 'smile-v2.0.0';
 const SHELL = [
   './', './index.html', './styles.css', './app.js', './data.js', './config.js', './manifest.webmanifest',
   './assets/hero.jpg', './assets/hero-sm.jpg', './assets/logo-circle.png',
-  './assets/cat-landmarks.jpg', './assets/cat-restaurants.jpg', './assets/cat-shops.jpg', './assets/cat-experiences.jpg',
+  './assets/cat-landmarks.jpg', './assets/cat-restaurants.jpg', './assets/cat-shops.jpg', './assets/cat-events.jpg',
   './icons/icon-32.png', './icons/icon-96.png', './icons/icon-192.png', './icons/icon-512.png',
   './icons/maskable-512.png', './icons/apple-touch-icon.png'
 ];

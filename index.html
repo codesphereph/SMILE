@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>SMILE - See More of Iloilo's Landmarks and Experiences</title>
-  <meta name="description" content="SMILE: See More of Iloilo's Landmarks and Experiences. Explore landmarks, restaurants and cafés, shops and experiences in Iloilo, and earn badges and points as you go.">
+  <title>SMILE - See More of Iloilo's Landmarks and Events</title>
+  <meta name="description" content="SMILE: See More of Iloilo's Landmarks and Events. Explore landmarks, restaurants and cafés, shops and festivals like Dinagyang. Take photos, finish challenges and rank up from Class E to Class SSS.">
   <meta name="theme-color" content="#FFB000">
   <meta name="application-name" content="SMILE">
 
-  <!-- PWA -->
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
@@ -18,14 +17,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="SMILE">
 
-  <!-- Social -->
-  <meta property="og:title" content="SMILE - See More of Iloilo's Landmarks and Experiences">
-  <meta property="og:description" content="Explore Iloilo and collect badges and points as you go.">
+  <meta property="og:title" content="SMILE - See More of Iloilo's Landmarks and Events">
+  <meta property="og:description" content="Explore Iloilo, take photos, complete challenges and rank up to Class SSS.">
   <meta property="og:image" content="assets/hero.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/hero.jpg">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -45,7 +43,7 @@
     </div>
     <p class="splash-tag">
       <span>See</span> <span>More</span> <span>of</span> <span>Iloilo's</span><br>
-      <span>Landmarks</span> <span>and</span> <span>Experiences</span>
+      <span>Landmarks</span> <span>and</span> <span>Events</span>
     </p>
   </div>
 
@@ -55,16 +53,18 @@
       <img src="assets/logo-circle.png" alt="SMILE logo" class="brand-logo" width="44" height="44">
       <span class="brand-text">
         <strong>SMILE</strong>
-        <small>See More of Iloilo's Landmarks and Experiences</small>
+        <small>See More of Iloilo's Landmarks and Events</small>
       </span>
     </a>
     <nav class="topnav" aria-label="Main">
       <a href="#home" data-nav="home">Home</a>
       <a href="#explore/landmarks" data-nav="explore">Explore</a>
-      <a href="#badges" data-nav="badges">Badges &amp; Points</a>
+      <a href="#challenges" data-nav="challenges">Challenges</a>
+      <a href="#rank" data-nav="rank">Rank &amp; Badges</a>
     </nav>
-    <button class="points-pill" id="pointsPill" type="button" aria-label="Your points">
-      <span class="star">★</span> <span id="pointsValue">0</span> pts
+    <button class="cam-top" type="button" data-camera aria-label="Take photo">📸 <span>Take Photo</span></button>
+    <button class="points-pill" id="pointsPill" type="button" aria-label="Your rank and points">
+      <span class="rank-chip" id="rankChip">E</span> <span id="pointsValue">0</span> pts
     </button>
   </header>
 
@@ -78,14 +78,13 @@
             <img src="assets/hero.jpg"
                  srcset="assets/hero-sm.jpg 768w, assets/hero.jpg 1536w"
                  sizes="(max-width: 800px) 100vw, 1200px"
-                 alt="SMILE, See More of Iloilo's Landmarks and Experiences: a traveler looking at a heritage church, a lighthouse by the water, and Ilonggo food, coffee and crafts"
+                 alt="SMILE, See More of Iloilo's Landmarks and Events: a traveler looking at a heritage church, a lighthouse by the water, and Ilonggo food, coffee and crafts"
                  width="1536" height="1024" fetchpriority="high">
-            <!-- Tappable hotspots over the poster's category circles -->
-            <a class="hotspot" style="--x:63.95%" href="#explore/landmarks"   aria-label="Landmarks"></a>
-            <a class="hotspot" style="--x:72.35%" href="#explore/restaurants" aria-label="Restaurants and Cafés"></a>
-            <a class="hotspot" style="--x:80.70%" href="#explore/shops"       aria-label="Shops"></a>
-            <a class="hotspot" style="--x:88.25%" href="#explore/experiences" aria-label="Experiences"></a>
-            <a class="hotspot" style="--x:95.70%" href="#badges"              aria-label="Badges and Points"></a>
+            <a class="hotspot" style="--x:63.87%" href="#explore/landmarks"   aria-label="Landmarks"></a>
+            <a class="hotspot" style="--x:72.66%" href="#explore/restaurants" aria-label="Restaurants and Cafés"></a>
+            <a class="hotspot" style="--x:80.66%" href="#explore/shops"       aria-label="Shops"></a>
+            <a class="hotspot" style="--x:88.15%" href="#explore/events"      aria-label="Events"></a>
+            <a class="hotspot" style="--x:95.64%" href="#rank"                aria-label="Badges and Points"></a>
           </div>
         </div>
 
@@ -93,26 +92,34 @@
           <img src="assets/logo-circle.png" alt="SMILE logo" class="hero-logo" width="96" height="96">
           <div class="hero-copy">
             <span class="eyebrow">Iloilo City · Province of Iloilo</span>
-            <h1>SMILE <span class="dash">-</span> <span class="sub">See More of Iloilo's Landmarks and Experiences</span></h1>
+            <h1>SMILE <span class="dash">-</span> <span class="sub">See More of Iloilo's Landmarks and Events</span></h1>
           </div>
           <div class="hero-cta">
             <a href="#explore/landmarks" class="btn btn-primary">Start exploring</a>
-            <a href="#badges" class="btn btn-ghost">My badges</a>
+            <button type="button" class="btn btn-ghost" data-camera>📸 Take Photo</button>
           </div>
         </div>
       </div>
 
       <div class="wrap">
+        <a class="rank-strip card" href="#rank" id="homeRank"></a>
+
         <div class="section-head">
           <span class="pill">Explore</span>
           <h2>Where to next?</h2>
         </div>
         <div class="cat-grid" id="catGrid"></div>
 
+        <div class="section-head row-head">
+          <div><span class="pill pill-pink">Challenges</span><h2>Take on a challenge</h2></div>
+          <a href="#challenges" class="link">See all →</a>
+        </div>
+        <div class="challenge-grid" id="homeChallenges"></div>
+
         <div class="how card">
-          <div class="how-step"><b>1</b><span><strong>Pick a place</strong>Landmarks, food, shops, experiences.</span></div>
-          <div class="how-step"><b>2</b><span><strong>Visit &amp; check in</strong>Tap "Check in" when you get there.</span></div>
-          <div class="how-step"><b>3</b><span><strong>Collect badges</strong>Earn points and unlock badges.</span></div>
+          <div class="how-step"><b>1</b><span><strong>Pick a place or event</strong>Landmarks, food, shops, festivals.</span></div>
+          <div class="how-step"><b>2</b><span><strong>Check in &amp; take a photo</strong>Earn points at every stop.</span></div>
+          <div class="how-step"><b>3</b><span><strong>Rank up</strong>Finish challenges to climb from Class E to SSS.</span></div>
         </div>
       </div>
     </section>
@@ -127,20 +134,34 @@
         <div class="tabs" role="tablist" id="catTabs"></div>
         <label class="search">
           <span aria-hidden="true">🔍</span>
-          <input type="search" id="searchInput" placeholder="Search places, areas, tags…" autocomplete="off">
+          <input type="search" id="searchInput" placeholder="Search places, events, areas, tags…" autocomplete="off">
         </label>
         <div class="place-grid" id="placeGrid"></div>
       </div>
     </section>
 
-    <!-- ============ BADGES & POINTS ============ -->
-    <section id="view-badges" class="view" data-view="badges" hidden>
+    <!-- ============ CHALLENGES ============ -->
+    <section id="view-challenges" class="view" data-view="challenges" hidden>
       <div class="wrap">
         <div class="section-head">
-          <span class="pill">Badges &amp; Points</span>
+          <span class="pill pill-pink">Challenges</span>
+          <h2>Visit, snap, earn bonus points</h2>
+          <p class="muted lead">Finish a challenge to earn its bonus points instantly. Bonus points help you rank up faster.</p>
+        </div>
+        <div class="challenge-grid big" id="challengeGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ RANK & BADGES ============ -->
+    <section id="view-rank" class="view" data-view="rank" hidden>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="pill">Rank &amp; Badges</span>
           <h2>Your Iloilo passport</h2>
         </div>
-        <div class="profile card" id="profileCard"></div>
+        <div class="rank-hero card" id="rankHero"></div>
+        <h3 class="h3">Rank ladder</h3>
+        <div class="ladder" id="rankLadder"></div>
         <h3 class="h3">Badges</h3>
         <div class="badge-grid" id="badgeGrid"></div>
         <h3 class="h3">Top explorers</h3>
@@ -151,15 +172,17 @@
 
   <footer class="footer">
     <img src="assets/logo-circle.png" alt="" width="28" height="28">
-    <span>SMILE · See More of Iloilo's Landmarks and Experiences</span>
+    <span>SMILE · See More of Iloilo's Landmarks and Events</span>
     <button type="button" class="link" id="installLink" hidden>Install app</button>
   </footer>
 
-  <!-- Mobile bottom nav -->
+  <!-- Mobile bottom nav with center camera -->
   <nav class="bottomnav" aria-label="Main mobile">
     <a href="#home" data-nav="home"><span>🏠</span>Home</a>
     <a href="#explore/landmarks" data-nav="explore"><span>📍</span>Explore</a>
-    <a href="#badges" data-nav="badges"><span>⭐</span>Badges</a>
+    <button type="button" class="cam-fab" data-camera aria-label="Take photo"><span>📸</span></button>
+    <a href="#challenges" data-nav="challenges"><span>🏁</span>Challenges</a>
+    <a href="#rank" data-nav="rank"><span>🏆</span>Rank</a>
   </nav>
 
   <!-- ============ INSTALL BANNER ============ -->
@@ -182,12 +205,57 @@
     <div id="sheetBody"></div>
   </div>
 
+  <!-- ============ CAMERA ============ -->
+  <div class="camera" id="camera" role="dialog" aria-modal="true" aria-label="Take photo" hidden>
+    <div class="cam-top-bar">
+      <button type="button" class="btn-x cam-btn" id="camClose" aria-label="Close camera">✕</button>
+      <label class="cam-place">
+        <span>📍</span>
+        <select id="camPlace" aria-label="Tag a place"></select>
+      </label>
+      <button type="button" class="btn-x cam-btn" id="camFlip" aria-label="Switch camera">🔄</button>
+    </div>
+    <div class="cam-stage">
+      <video id="camVideo" playsinline muted autoplay></video>
+      <img id="camResult" alt="Your SMILE photo" hidden>
+      <div class="cam-frame-guide" aria-hidden="true">
+        <img src="assets/logo-circle.png" alt="">
+        <div class="cam-guide-band"><b id="camGuidePlace">Iloilo</b><small>SMILE · See More of Iloilo's Landmarks and Events</small></div>
+      </div>
+      <div class="cam-msg" id="camMsg" hidden></div>
+    </div>
+    <div class="cam-controls" id="camShootControls">
+      <label class="cam-side" title="Choose from gallery">🖼️<input type="file" accept="image/*" id="camFile" hidden></label>
+      <button type="button" class="shutter" id="camShutter" aria-label="Take photo"></button>
+      <span class="cam-side cam-pts" id="camPts">+5</span>
+    </div>
+    <div class="cam-controls" id="camResultControls" hidden>
+      <button type="button" class="btn btn-ghost" id="camRetake">↺ Retake</button>
+      <button type="button" class="btn btn-ghost" id="camSave">⬇ Save</button>
+      <button type="button" class="btn btn-primary" id="camShare">Share</button>
+    </div>
+    <input type="file" accept="image/*" capture="environment" id="camCapture" hidden>
+    <canvas id="camCanvas" hidden></canvas>
+  </div>
+
+  <!-- ============ RANK-UP ============ -->
+  <div class="rankup" id="rankup" role="dialog" aria-modal="true" aria-labelledby="rankupTitle" hidden>
+    <div class="rankup-card">
+      <div class="rankup-rays" aria-hidden="true"></div>
+      <span class="eyebrow">Rank up!</span>
+      <div class="rank-emblem xl" id="rankupEmblem">E</div>
+      <h3 id="rankupTitle">Class E</h3>
+      <p class="muted" id="rankupSub">Newcomer</p>
+      <button type="button" class="btn btn-primary" id="rankupClose">Awesome!</button>
+    </div>
+  </div>
+
   <!-- ============ NAME DIALOG ============ -->
   <dialog id="nameDialog" class="dialog">
     <form method="dialog" id="nameForm">
       <img src="assets/logo-circle.png" alt="" width="72" height="72">
       <h3>What should we call you?</h3>
-      <p class="muted">Your nickname appears on the Top Explorers board.</p>
+      <p class="muted">Your nickname and rank appear on the Top Explorers board.</p>
       <input id="nameInput" maxlength="40" required placeholder="e.g. Ilonggo Explorer">
       <div class="row">
         <button value="cancel" class="btn btn-ghost" type="button" id="nameCancel">Cancel</button>
